@@ -10,6 +10,9 @@ The ability to spin up a Rails APIs can actually help us develop our frontend
 JavaScript abilities, as the API will give something tangible to work against
 as you write your code.
 
+
+
+
 For this project, you will need to build out both a JavaScript frontend and
 Rails API backend. There are no tests, but a set of goals for you to try and
 achieve.
