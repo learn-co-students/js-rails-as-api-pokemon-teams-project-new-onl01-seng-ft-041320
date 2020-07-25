@@ -67,7 +67,7 @@ function addPokemon(trainerId) {
         return responseObject.json()
     })
     .then(function(pokemon) {
-        if (!!pokemon) {
+        if (pokemon.message) {
             alert(pokemon.message)
         } else {
             let newPokemon = makePokemonLi(pokemon)
@@ -83,3 +83,26 @@ function addPokemon(trainerId) {
 }
 
 // Whenever a user hits "Release Pokemon" on a specific Pokemon team, that specific Pokemon should be released from the team.
+
+main.addEventListener('click', function (e) {
+    // e.preventDefault()
+    if (e.target.className == 'release') {
+        let pokemonId = e.target.id
+        // debugger
+        releasePokemon(pokemonId)
+        e.target.parentElement.remove()
+    }
+})
+
+function releasePokemon(pokemonId) {
+    fetch(POKEMONS_URL + `/${pokemonId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            'pokemonId': pokemonId
+        })
+    })
+}
