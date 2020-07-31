@@ -10,7 +10,6 @@ class PokemonsController < ApplicationController
     end
 
     def create
-        byebug
         trainer = Trainer.find_by(id: params[:pokemon][:trainer_id])
         if trainer.pokemons.count < 6
             pokemon = Pokemon.create(
